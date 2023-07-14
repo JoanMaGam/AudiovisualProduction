@@ -8,6 +8,12 @@ const app = require('../app');
 const debug = require('debug')('audiovisualproduction:server');
 const http = require('http');
 
+//config env
+require('dotenv').config();
+
+//config MySQL DB
+require('../config/db');
+
 /**
  * Get port from environment and store in Express.
  */
