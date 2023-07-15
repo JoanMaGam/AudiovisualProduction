@@ -1,0 +1,13 @@
+
+@host = http://localhost:3000
+@urlUsers = /api/users
+@urlAdmins = /api/admins
+
+##### USERS API #####
+# GET http://localhost:3000/api/users
+GET {{host}}{{urlUsers}}
+
+##### ADMINS API #####
+# GET http://localhost:3000/api/admins
+GET {{host}}{{urlAdmins}}
+
