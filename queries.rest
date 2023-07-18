@@ -2,6 +2,13 @@
 @host = http://localhost:3000
 @urlUsers = /api/users
 @urlAdmins = /api/admins
+@urlShows = /api/shows
+@urlAudios = /api/audios
+@urlCharacters = /api/characters
+@urlStore = /api/store
+
+
+
 
 ##### USERS API #####
 # GET http://localhost:3000/api/users
@@ -10,4 +17,65 @@ GET {{host}}{{urlUsers}}
 ##### ADMINS API #####
 # GET http://localhost:3000/api/admins
 GET {{host}}{{urlAdmins}}
+
+### SHOWS
+# Return all shows:
+# GET /api/shows/
+GET {{host}}{{urlShows}}
+
+# Return shows by name:
+# GET /api/shows/:name
+{{host}}{{urlShows}}/:name
+
+### AUDIOS
+# Return all audios: 
+# GET /api/audios/
+{{host}}{{urlAudios}}
+
+# Return audio by name:
+# GET /api/audios/:name
+{{host}}{{urlAudios}}/name
+
+# Return audio by showName:
+# GET /api/audios/:showName
+{{host}}{{urlAudios}}/:showName
+
+### CHARACTERS
+# Return all characters:
+# GET /api/characters/
+{{host}}{{urlCharacters}}
+
+# Return character by name:
+# GET /api/characters/:name
+{{host}}{{urlCharacters}}/:name
+
+# Return character by show:
+# GET /api/characters/:showName
+{{host}}{{urlCharacters}}/:showName
+
+### STORE
+# Return all products:
+# GET /api/store/
+{{host}}{{urlStore}}
+
+# Return product by name:
+# GET /api/store/:name
+{{host}}{{urlStore}}/:name
+
+# Return product by lowerPrice:
+# Get /api/store/
+
+
+# Return product by maxPrice:
+# Get /api/store/
+
+# Return product by status:
+# GET /api/store/:status
+{{host}}{{urlStore}}/:status
+
+
+
+
+
+
 
