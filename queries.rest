@@ -43,35 +43,36 @@ GET {{host}}{{urlShows}}
 ### CHARACTERS
 # Return all characters:
 # GET /api/characters/
-{{host}}{{urlCharacters}}
+GET {{host}}{{urlCharacters}}
 
-# Return character by name:
+### Return character by name:
 # GET /api/characters/:name
-{{host}}{{urlCharacters}}/:name
+GET {{host}}{{urlCharacters}}/:name
 
-# Return character by show:
+### Return character by show:
 # GET /api/characters/:showName
-{{host}}{{urlCharacters}}/:showName
+GET {{host}}{{urlCharacters}}/:showName
 
 ### STORE
-# Return all products:
+### Return all products:
 # GET /api/store/
-{{host}}{{urlStore}}
+GET {{host}}{{urlStore}}
 
-# Return product by name:
+### Return product by name:
 # GET /api/store/:name
-{{host}}{{urlStore}}/:name
+GET {{host}}{{urlStore}}/phone
 
-# Return product by lowerPrice:
-# Get /api/store/
+### Return product ordered from min to max price:
+# GET /api/store/order/desc
+GET {{host}}{{urlStore}}/order/desc
 
+### Return product ordered from max to min price:
+# GEE /api/store/order/ASC
+GET {{host}}{{urlStore}}/order/asc
 
-# Return product by maxPrice:
-# Get /api/store/
-
-# Return product by status:
-# GET /api/store/:status
-{{host}}{{urlStore}}/:status
+### Return product by status:
+# GET /api/store/status/:productStatus
+GET {{host}}{{urlStore}}/status/pending
 
 
 

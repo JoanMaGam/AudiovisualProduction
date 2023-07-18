@@ -5,6 +5,6 @@ router.use('/users', require('./api/users'));
 router.use('/programs', require('./api/programs'));
 router.use('/characters', require('./api/characters'));
 router.use('/music', require('./api/music'));
-router.use('/products', require('./api/products'));
+router.use('/store', require('./api/store'));
 
 module.exports = router;
