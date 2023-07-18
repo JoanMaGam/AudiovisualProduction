@@ -46,12 +46,12 @@ GET {{host}}{{urlShows}}
 GET {{host}}{{urlCharacters}}
 
 ### Return character by name:
-# GET /api/characters/:name
-GET {{host}}{{urlCharacters}}/:name
+# GET /api/characters/:characterName
+GET {{host}}{{urlCharacters}}/char1
 
-### Return character by show:
-# GET /api/characters/:showName
-GET {{host}}{{urlCharacters}}/:showName
+### Return character by showId:
+# GET /api/characters/shows/:showId
+GET {{host}}{{urlCharacters}}/shows/2
 
 ### STORE
 ### Return all products:
