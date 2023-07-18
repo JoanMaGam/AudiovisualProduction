@@ -8,8 +8,6 @@
 @urlStore = /api/store
 
 
-
-
 ##### USERS API #####
 # GET http://localhost:3000/api/users
 GET {{host}}{{urlUsers}}
@@ -18,30 +16,30 @@ GET {{host}}{{urlUsers}}
 # GET http://localhost:3000/api/admins
 GET {{host}}{{urlAdmins}}
 
-### SHOWS
-# Return all shows:
+##### SHOWS API #####
+### Return all shows:
 # GET /api/shows/
 GET {{host}}{{urlShows}}
 
-# Return shows by name:
-# GET /api/shows/:name
-{{host}}{{urlShows}}/:name
+### Return shows by name:
+# GET /api/shows/:title
+{{host}}{{urlShows}}/program3
 
-### AUDIOS
-# Return all audios: 
+#### AUDIOS API #####
+### Return all audios: 
 # GET /api/audios/
-{{host}}{{urlAudios}}
+GET {{host}}{{urlAudios}}
 
-# Return audio by name:
-# GET /api/audios/:name
-{{host}}{{urlAudios}}/name
+### Return audio by title:
+# GET /api/audios/:title
+GET {{host}}{{urlAudios}}/music1
 
-# Return audio by showName:
-# GET /api/audios/:showName
-{{host}}{{urlAudios}}/:showName
+### Return audio by showId:
+# GET /api/audios/shows/:showId
+GET {{host}}{{urlAudios}}/shows/1
 
-### CHARACTERS
-# Return all characters:
+#### CHARACTERS API #####
+### Return all characters:
 # GET /api/characters/
 GET {{host}}{{urlCharacters}}
 
@@ -53,7 +51,7 @@ GET {{host}}{{urlCharacters}}/char1
 # GET /api/characters/shows/:showId
 GET {{host}}{{urlCharacters}}/shows/2
 
-### STORE
+#### STORE API #####
 ### Return all products:
 # GET /api/store/
 GET {{host}}{{urlStore}}
