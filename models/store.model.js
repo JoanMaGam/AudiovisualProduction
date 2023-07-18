@@ -26,4 +26,4 @@ const orderByPriceAsc = () => {
 // };
 
 
-module.exports = { getAll, getByName, getByStatus, orderByPriceDesc, orderByPriceAsc /*, orderByPrice */ }
+module.exports = { getAll, getByName, getByStatus, orderByPriceDesc, orderByPriceAsc /*, orderByPrice */ };

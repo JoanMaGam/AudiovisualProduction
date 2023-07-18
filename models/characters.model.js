@@ -13,4 +13,4 @@ const getByShowId = (showId) => {
 };
 
 
-module.exports = { getAll, getByName, getByShowId }
+module.exports = { getAll, getByName, getByShowId };

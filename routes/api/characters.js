@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll, getByName, getByShowId } = require('../../models/characters.model')
+const { getAll, getByName, getByShowId } = require('../../models/characters.model');
 
 // GET Queries:
 
@@ -7,30 +7,29 @@ const { getAll, getByName, getByShowId } = require('../../models/characters.mode
 router.get('/', async (req, res) => {
     try {
         const [result] = await getAll();
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 
-// Get characters by name
+// Get character by name
 router.get('/:characterName', async (req, res) => {
     try {
         const [result] = await getByName(req.params.characterName);
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 
-// Get characters by showId
+// Get character by showId
 router.get('/shows/:showId', async (req, res) => {
     try {
         const [result] = await getByShowId(req.params.showId);
-        console.log(result);
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 

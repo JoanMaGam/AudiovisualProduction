@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll, getByName, getByStatus, orderByPriceDesc, orderByPriceAsc/* , orderByPrice */ } = require('../../models/store.model')
+const { getAll, getByName, getByStatus, orderByPriceDesc, orderByPriceAsc/* , orderByPrice */ } = require('../../models/store.model');
 
 // GET Queries:
 
@@ -7,9 +7,9 @@ const { getAll, getByName, getByStatus, orderByPriceDesc, orderByPriceAsc/* , or
 router.get('/', async (req, res) => {
     try {
         const [result] = await getAll();
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 
@@ -17,9 +17,9 @@ router.get('/', async (req, res) => {
 router.get('/:productName', async (req, res) => {
     try {
         const [result] = await getByName(req.params.productName);
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 
@@ -27,10 +27,9 @@ router.get('/:productName', async (req, res) => {
 router.get('/status/:productStatus', async (req, res) => {
     try {
         const [result] = await getByStatus(req.params.productStatus);
-        console.log(result);
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 
@@ -38,10 +37,9 @@ router.get('/status/:productStatus', async (req, res) => {
 router.get('/order/desc', async (req, res) => {
     try {
         const [result] = await orderByPriceDesc();
-        console.log(result);
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 
@@ -49,10 +47,9 @@ router.get('/order/desc', async (req, res) => {
 router.get('/order/asc', async (req, res) => {
     try {
         const [result] = await orderByPriceAsc();
-        console.log(result);
-        res.json(result)
+        res.json(result);
     } catch (error) {
-        res.json({ 'fatal': error.message })
+        res.json({ 'fatal': error.message });
     }
 });
 
