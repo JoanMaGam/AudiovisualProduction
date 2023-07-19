@@ -12,6 +12,45 @@
 # GET http://localhost:3000/api/users
 GET {{host}}{{urlUsers}}
 
+### GET/api/users/1
+GET {{host}}{{urlUsers}}/2
+
+### create/api/users/
+POST {{host}}{{urlUsers}}
+Content-Type: application/json
+
+{ 
+    "name": "Sofia", 
+    "surname": "Paez", 
+    "age": "24", 
+    "dni": "0000082", 
+    "email":"sof@gmail.com", 
+    "phone": "9543007056",
+    "address":"12777 nw avenue",
+    "password":"pass123",
+    "role":"admin"
+}
+
+###update/api/user/:userId
+PUT {{host}}{{urlUsers}}/update/2
+Content-Type: application/json
+
+{ 
+    "name":"Joan", 
+    "surname": "Paez", 
+    "age": 24, 
+    "dni": "000008",
+    "email":"sofy@gmail.com", 
+    "phone": 9543007056, 
+    "address":"12777 nw avenue", 
+    "password":"pass1256", 
+    "role":"admin"
+}
+
+###delete/api/user/:userId
+DELETE {{host}}{{urlUsers}}/6
+
+
 
 
 ##### SHOWS API #####
@@ -43,11 +82,11 @@ GET {{host}}{{urlCharacters}}
 
 ### Return character by name:
 # GET /api/characters/:characterName
-GET {{host}}{{urlCharacters}}/char1
+GET {{host}}{{urlCharacters}}/Samaya
 
 ### Return character by showId:
 # GET /api/characters/shows/:showId
-GET {{host}}{{urlCharacters}}/shows/2
+GET {{host}}{{urlCharacters}}/shows/1
 
 #### STORE API #####
 ### Return all products:
