@@ -31,7 +31,7 @@ Content-Type: application/json
     "role":"admin"
 }
 
-###update/api/user/:userId
+###update/api/users/:userId
 PUT {{host}}{{urlUsers}}/update/2
 Content-Type: application/json
 
@@ -47,8 +47,26 @@ Content-Type: application/json
     "role":"admin"
 }
 
-###delete/api/user/:userId
+###delete/api/users/:userId
 DELETE {{host}}{{urlUsers}}/6
+
+####### REGISTER & LOGIN ########
+### Register one user:
+# POST /api/users/
+POST {{host}}{{urlUsers}}
+Content-Type: application/json
+
+{
+    "name":"Vin", 
+    "surname": "Diesel", 
+    "age": 50, 
+    "dni": "1234322Z",
+    "email":"v@gmail.com", 
+    "phone": 9998888999, 
+    "address":"2 nw avenue", 
+    "password":"111", 
+    "role":"user"
+}
 
 
 

@@ -23,4 +23,13 @@ const deleteUserById = (userID) => {
     return db.query(`DELETE FROM ${usersDb} WHERE id=?`, [userID]);
 }
 
-module.exports = { getAll, getById, create, update, deleteUserById } 
+// ############# Register & Login ##################
+
+const insert = ({ name, email, password }) => {
+    return db.query(
+        `INSERT INTO ${tableDB} (name, email, password) VALUES (?,?,?)`,
+        [name, email, password]
+    );
+};
+
+module.exports = { getAll, getById, create, update, deleteUserById, insert } 

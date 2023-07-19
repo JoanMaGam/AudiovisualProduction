@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { getAll, getById, create, deleteUserById } = require('../../models/user.model');
+// const bcrypt = require('bcryptjs');
+
+const { getAll, getById, create, deleteUserById, insert } = require('../../models/user.model');
 
 
 router.get('/', async (req, res) => {
@@ -39,6 +41,19 @@ router.delete('/:id', async (req, res) => {
     }
     catch (error) {
         res.json({ 'fatal': error.message });
+    }
+});
+
+// ######### REGISTER & LOGIN #############
+
+router.post('/register', async (req, res) => {
+    //body -> name , email, password
+    try {
+        // req.body.password = bcrypt.hashSync(req.body.password, 9);
+        const [result] = await insert(req.body);
+        res.json(result);
+    } catch (error) {
+        res.json({ fatal: error.message })
     }
 });
 
