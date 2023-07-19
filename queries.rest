@@ -8,70 +8,67 @@
 @urlStore = /api/store
 
 
-
-
 ##### USERS API #####
 # GET http://localhost:3000/api/users
 GET {{host}}{{urlUsers}}
 
-##### ADMINS API #####
-# GET http://localhost:3000/api/admins
-GET {{host}}{{urlAdmins}}
 
-### SHOWS
-# Return all shows:
+
+##### SHOWS API #####
+### Return all shows:
 # GET /api/shows/
 GET {{host}}{{urlShows}}
 
-# Return shows by name:
-# GET /api/shows/:name
-{{host}}{{urlShows}}/:name
+### Return shows by name:
+# GET /api/shows/:title
+{{host}}{{urlShows}}/program3
 
-### AUDIOS
-# Return all audios: 
+#### AUDIOS API #####
+### Return all audios: 
 # GET /api/audios/
-{{host}}{{urlAudios}}
+GET {{host}}{{urlAudios}}
 
-# Return audio by name:
-# GET /api/audios/:name
-{{host}}{{urlAudios}}/name
+### Return audio by title:
+# GET /api/audios/:title
+GET {{host}}{{urlAudios}}/music1
 
-# Return audio by showName:
-# GET /api/audios/:showName
-{{host}}{{urlAudios}}/:showName
+### Return audio by showId:
+# GET /api/audios/shows/:showId
+GET {{host}}{{urlAudios}}/shows/1
 
-### CHARACTERS
-# Return all characters:
+#### CHARACTERS API #####
+### Return all characters:
 # GET /api/characters/
-{{host}}{{urlCharacters}}
+GET {{host}}{{urlCharacters}}
 
-# Return character by name:
-# GET /api/characters/:name
-{{host}}{{urlCharacters}}/:name
+### Return character by name:
+# GET /api/characters/:characterName
+GET {{host}}{{urlCharacters}}/char1
 
-# Return character by show:
-# GET /api/characters/:showName
-{{host}}{{urlCharacters}}/:showName
+### Return character by showId:
+# GET /api/characters/shows/:showId
+GET {{host}}{{urlCharacters}}/shows/2
 
-### STORE
-# Return all products:
+#### STORE API #####
+### Return all products:
 # GET /api/store/
-{{host}}{{urlStore}}
+GET {{host}}{{urlStore}}
 
-# Return product by name:
+### Return product by name:
 # GET /api/store/:name
-{{host}}{{urlStore}}/:name
+GET {{host}}{{urlStore}}/phone
 
-# Return product by lowerPrice:
-# Get /api/store/
+### Return product ordered from min to max price:
+# GET /api/store/order/desc
+GET {{host}}{{urlStore}}/order/desc
 
+### Return product ordered from max to min price:
+# GEE /api/store/order/ASC
+GET {{host}}{{urlStore}}/order/asc
 
-# Return product by maxPrice:
-# Get /api/store/
-
-# Return product by status:
-# GET /api/store/:status
-{{host}}{{urlStore}}/:status
+### Return product by status:
+# GET /api/store/status/:productStatus
+GET {{host}}{{urlStore}}/status/pending
 
 
 
