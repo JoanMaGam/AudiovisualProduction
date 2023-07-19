@@ -12,6 +12,45 @@
 # GET http://localhost:3000/api/users
 GET {{host}}{{urlUsers}}
 
+### GET/api/users/1
+GET {{host}}{{urlUsers}}/2
+
+### create/api/users/
+POST {{host}}{{urlUsers}}
+Content-Type: application/json
+
+{ 
+"name": "Paul", 
+"surname": "Paez", 
+"age": "24", 
+"dni": "000908", 
+"email":"paul@gmail.com", 
+"phone": "9543007059",
+"address":"12777 nw avenue",
+"password":"pass123",
+"role":"admin"
+}
+
+###update/api/user/:userId
+PUT {{host}}{{urlUsers}}/update/2
+Content-Type: application/json
+
+{ 
+"name": "Sofia", 
+"surname": "Paez", 
+"age": "24", 
+"dni": "000087", 
+"email":"hl9@gmail.com", 
+"phone": "9543087006", 
+"address":"12777 nw avenue", 
+"password":"pass1256", 
+"role": "admin"
+}
+
+###delete/api/user/:userId
+DELETE {{host}}{{urlUsers}}/1
+
+###
 
 
 ##### SHOWS API #####
@@ -43,7 +82,7 @@ GET {{host}}{{urlCharacters}}
 
 ### Return character by name:
 # GET /api/characters/:characterName
-GET {{host}}{{urlCharacters}}/char1
+GET {{host}}{{urlCharacters}}/Bonnie Cella
 
 ### Return character by showId:
 # GET /api/characters/shows/:showId
