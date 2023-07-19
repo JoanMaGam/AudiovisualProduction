@@ -18,6 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middlewares 
+
+
 app.use('/api', apiRouter);
 
 module.exports = app;
