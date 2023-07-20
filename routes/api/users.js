@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const { checkToken } = require('../../helpers/middlewares');
 const { createToken } = require('../../helpers/utils');
-const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update } = require('../../models/user.model');
+const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update, getUserShows, getUserProducts } = require('../../models/user.model');
 
 
 router.get('/', checkToken, async (req, res) => {
@@ -15,27 +15,27 @@ router.get('/', checkToken, async (req, res) => {
     };
 });
 
-router.get('/audios', checkToken, async (req, res) => {
+router.get('/audios/:userID', checkToken, async (req, res) => {
     try {
-        const [result] = await getUserAudios(req.user.id);
+        const [result] = await getUserAudios(req.params.userID);
         res.json(result);
     } catch (error) {
         res.json({ 'fatal': error.message });
     };
 });
 
-router.get('/shows', checkToken, async (req, res) => {
+router.get('/shows/:userID', checkToken, async (req, res) => {
     try {
-        const [result] = await getUserShows(req.user.id);
+        const [result] = await getUserShows(req.params.userID);
         res.json(result);
     } catch (error) {
         res.json({ 'fatal': error.message });
     };
 });
 
-router.get('/products', checkToken, async (req, res) => {
+router.get('/products/:userID', checkToken, async (req, res) => {
     try {
-        const [result] = await getUserProducts(req.user.id);
+        const [result] = await getUserProducts(req.params.userID);
         res.json(result);
     } catch (error) {
         res.json({ 'fatal': error.message });
@@ -123,7 +123,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/perfil', checkToken, (req, res) => {
-    // delete req.user.password; //esto elimina el password antes de que me lo muestre.
+    // delete req.user.password; //This deletes the password before showing it
     res.json(req.user);
 });
 

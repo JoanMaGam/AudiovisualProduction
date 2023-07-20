@@ -7,9 +7,6 @@
 @urlCharacters = /api/characters
 @urlStore = /api/store
 
-@urlHasProductions = /api/users_has_productions
-@urlHasProducts= /api/users_has_products
-
 ##### USERS API #####
 # Get all users:
 # GET http://localhost:3000/api/users
@@ -92,14 +89,23 @@ Content-Type: application/json
     "password": "1212"
 }
 
- ###get/api/users_has_productions/shows/users_id 
-GET {{host}}{{urlHasProductions}}/shows/
 
-###get/api/users_has_productions/music/users_id
-GET {{host}}{{urlHasProductions}}/music/1
+### Get the audios from user id.
+# GET /api/users/audios/:userID
+GET {{host}}{{urlUsers}}/audios/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
 
-###
-GET {{host}}{{urlHasProducts}}/1
+### Get the shows from user id.
+# GET/api/users/shows/:userID
+GET {{host}}{{urlUsers}}/shows/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+
+### Get the products from user id.
+# GET /api/users/products/:userID
+GET {{host}}{{urlUsers}}/products/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+
+
 
 ##### SHOWS API #####
 ### Return all shows:
