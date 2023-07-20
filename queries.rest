@@ -52,19 +52,19 @@ DELETE {{host}}{{urlUsers}}/6
 
 ####### REGISTER & LOGIN ########
 ### Register one user:
-# POST /api/users/
-POST {{host}}{{urlUsers}}
+# POST /api/users/register
+POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
 
 {
-    "name":"Vin", 
-    "surname": "Diesel", 
-    "age": 50, 
-    "dni": "1234322Z",
-    "email":"v@gmail.com", 
-    "phone": 9998888999, 
-    "address":"2 nw avenue", 
-    "password":"111", 
+    "name":"Pika", 
+    "surname": "Chu", 
+    "age": 11, 
+    "dni": "1111111X",
+    "email":"pica@gmail.com", 
+    "phone": 1111111, 
+    "address":"11 nw avenue", 
+    "password":"1111", 
     "role":"user"
 }
 

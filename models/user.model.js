@@ -25,11 +25,8 @@ const deleteUserById = (userID) => {
 
 // ############# Register & Login ##################
 
-const insert = ({ name, email, password }) => {
-    return db.query(
-        `INSERT INTO ${tableDB} (name, email, password) VALUES (?,?,?)`,
-        [name, email, password]
-    );
+const insert = ({ name, surname, age, dni, email, phone, address, password, role }) => {
+    return db.query(`INSERT INTO ${usersDb}(name, surname, age, dni, email, phone, address, password, role) VALUES(?,?,?,?,?,?,?,?,?)`, [name, surname, age, dni, email, phone, address, password, role])
 };
 
 module.exports = { getAll, getById, create, update, deleteUserById, insert } 

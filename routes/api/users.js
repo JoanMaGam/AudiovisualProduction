@@ -47,7 +47,6 @@ router.delete('/:id', async (req, res) => {
 // ######### REGISTER & LOGIN #############
 
 router.post('/register', async (req, res) => {
-    //body -> name , email, password
     try {
         // req.body.password = bcrypt.hashSync(req.body.password, 9);
         const [result] = await insert(req.body);
