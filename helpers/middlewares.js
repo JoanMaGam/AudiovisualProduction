@@ -1,8 +1,9 @@
 const dayjs = require('dayjs');
 const jwt = require('jsonwebtoken');
 const fs = require('fs/promises');
+const { getById } = require('../models/user.model');
 
-const { getById } = require('../models/admins.models');
+
 
 // Server log to know server uses
 const serverlogs = async (req, res, next) => {
