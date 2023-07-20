@@ -26,13 +26,13 @@ const deleteUserById = (userID) => {
 };
 
 const getUserAudios = (userID) => {
-    console.log('aqui va una petición para sacar los audios en función del user que le pasamos por parametro');
+    return db.query(`SELECT * FROM ${usersproductionsDB} WHERE id=?`, [userID]);
 };
 const getUserShows = (userID) => {
-    console.log('aqui va una petición para sacar los showss en función del user que le pasamos por parametro');
+    return db.query(`SELECT * FROM ${usersproductionsDB} WHERE id=?`, [userID]);
 };
 const getUserProducts = (userID) => {
-    console.log('aqui va una petición para sacar los products en función del user que le pasamos por parametro');
+    return db.query(`SELECT * FROM ${usersproductsDB} WHERE id=?`, [userID]);
 };
 
 // ############# Register & Login ##################

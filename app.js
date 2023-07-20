@@ -21,6 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Middlewares 
 
 
-app.use('/api', apiRouter);
+app.use('/api', serverlogs, apiRouter);
 
 module.exports = app;

@@ -1,7 +1,5 @@
 const router = require('express').Router();
 
-const { checkToken } = require('../helpers/middlewares');
-
 
 
 router.use('/users', require('./api/users'));

@@ -7,33 +7,40 @@
 @urlCharacters = /api/characters
 @urlStore = /api/store
 
+@urlHasProductions = /api/users_has_productions
+@urlHasProducts= /api/users_has_products
 
 ##### USERS API #####
+# Get all users:
 # GET http://localhost:3000/api/users
 GET {{host}}{{urlUsers}}
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAyODc3OTUsImlhdCI6MTY4OTg1NTc5NX0.Y9G4JAjGmqc0j-_wVPOXYmRKUJa69dteS_P1ajQNCgc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
 
-### GET/api/users/1
+### Get one user by id:
+# GET/api/users/1
 GET {{host}}{{urlUsers}}/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAyODY5MTgsImlhdCI6MTY4OTg1NDkxOH0.-FNYUkJP9ilvE3t47T4ZhKVblqpwhYbR1MIzFIaQ07I
 
-### create/api/users/
+### Create one user:
+# POST /api/users/
 POST {{host}}{{urlUsers}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
 Content-Type: application/json
 
 { 
-    "name": "Sofia", 
-    "surname": "Paez", 
-    "age": "24", 
-    "dni": "0000082", 
-    "email":"sof@gmail.com", 
-    "phone": "9543007056",
-    "address":"12777 nw avenue",
-    "password":"pass123",
-    "role":"admin"
+    "name": "John", 
+    "surname": "Wick", 
+    "age": "44", 
+    "dni": "33222221W", 
+    "email":"jw@gmail.com", 
+    "phone": "90090990",
+    "address":"900 nw avenue",
+    "password":"wick",
+    "role":"user"
 }
 
-###update/api/users/:userId
+### Update one user by id:
+# PUT /api/users/:userId
 PUT {{host}}{{urlUsers}}/update/2
 Content-Type: application/json
 
@@ -49,40 +56,50 @@ Content-Type: application/json
     "role":"admin"
 }
 
-###delete/api/users/:userId
+### Delete one user by id:
+# DELETE /api/users/:userId
 DELETE {{host}}{{urlUsers}}/7
+
+
 
 ####### REGISTER & LOGIN ########
 ### Register one user:
 # POST /api/admins/register
 # Body: name, surname, age, dni, email, phone, address, password, role
-POST {{host}}{{urlAdmins}}/register
+POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
 
 {
-    "name":"Pika", 
-    "surname": "Chu", 
-    "age": 11, 
-    "dni": "1111111X",
-    "email":"pica@gmail.com", 
-    "phone": 1111111, 
-    "address":"11 nw avenue", 
-    "password":"1111", 
+    "name":"Dani", 
+    "surname": "Melow", 
+    "age": 33, 
+    "dni": "1121111X",
+    "email":"melow@gmail.com", 
+    "phone": 999999, 
+    "address":"133 nw avenue", 
+    "password":"1212", 
     "role":"user"
 }
 
-### Login 
+### Login:
 # POST /api/admins/login
-POST {{host}}{{urlAdmins}}/login
+# Body: email, password
+POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "pica@gmail.com",
-    "password": "1111"
+    "email": "melow@gmail.com",
+    "password": "1212"
 }
 
+ ###get/api/users_has_productions/shows/users_id 
+GET {{host}}{{urlHasProductions}}/shows/
 
+###get/api/users_has_productions/music/users_id
+GET {{host}}{{urlHasProductions}}/music/1
 
+###
+GET {{host}}{{urlHasProducts}}/1
 
 ##### SHOWS API #####
 ### Return all shows:
@@ -93,6 +110,8 @@ GET {{host}}{{urlShows}}
 # GET /api/shows/:title
 {{host}}{{urlShows}}/program3
 
+
+
 #### AUDIOS API #####
 ### Return all audios: 
 # GET /api/audios/
@@ -100,11 +119,13 @@ GET {{host}}{{urlAudios}}
 
 ### Return audio by title:
 # GET /api/audios/:title
-GET {{host}}{{urlAudios}}/music1
+GET {{host}}{{urlAudios}}/The Regents- End Credit Theme
 
 ### Return audio by showId:
 # GET /api/audios/shows/:showId
 GET {{host}}{{urlAudios}}/shows/1
+
+
 
 #### CHARACTERS API #####
 ### Return all characters:
@@ -117,7 +138,9 @@ GET {{host}}{{urlCharacters}}/Samaya
 
 ### Return character by showId:
 # GET /api/characters/shows/:showId
-GET {{host}}{{urlCharacters}}/shows/1
+GET {{host}}{{urlCharacters}}/shows/2
+
+
 
 #### STORE API #####
 ### Return all products:
@@ -126,7 +149,7 @@ GET {{host}}{{urlStore}}
 
 ### Return product by name:
 # GET /api/store/:name
-GET {{host}}{{urlStore}}/phone
+GET {{host}}{{urlStore}}/Sun Logo
 
 ### Return product ordered from min to max price:
 # GET /api/store/order/desc
