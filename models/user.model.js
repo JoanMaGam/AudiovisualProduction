@@ -18,7 +18,7 @@ const create = ({ name, surname, age, dni, email, phone, address, password, role
 };
 
 const update = (userID, { name, surname, age, dni, email, phone, address, password, role }) => {
-    return db.query(`UPDATE ${usersDb} SET user.name=?, user.surname=?, user.age=?, user.dni=?, user.email=?,user.phone=?, user.address=?, user.password=?, user.role=?;`, [name, surname, age, dni, email, phone, address, password, role]);
+    return db.query(`UPDATE ${usersDb} SET users.name= ?, users.surname= ?, users.age= ?, users.dni= ?, users.email= ?,users.phone= ?, users.address= ?, users.password= ?, users.role= ? WHERE users.id= ?;`, [name, surname, age, dni, email, phone, address, password, role, userID]);
 };
 
 const deleteUserById = (userID) => {
