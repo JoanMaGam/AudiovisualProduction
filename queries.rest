@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ### Update one user by id:
 # PUT /api/users/:userId
-PUT {{host}}{{urlUsers}}/update/2
+PUT {{host}}{{urlUsers}}/update/1
 Content-Type: application/json
 
 { 
