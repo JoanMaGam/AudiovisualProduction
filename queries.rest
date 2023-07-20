@@ -11,9 +11,11 @@
 ##### USERS API #####
 # GET http://localhost:3000/api/users
 GET {{host}}{{urlUsers}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAyODc3OTUsImlhdCI6MTY4OTg1NTc5NX0.Y9G4JAjGmqc0j-_wVPOXYmRKUJa69dteS_P1ajQNCgc
 
 ### GET/api/users/1
 GET {{host}}{{urlUsers}}/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAyODY5MTgsImlhdCI6MTY4OTg1NDkxOH0.-FNYUkJP9ilvE3t47T4ZhKVblqpwhYbR1MIzFIaQ07I
 
 ### create/api/users/
 POST {{host}}{{urlUsers}}
@@ -31,7 +33,7 @@ Content-Type: application/json
     "role":"admin"
 }
 
-###update/api/user/:userId
+###update/api/users/:userId
 PUT {{host}}{{urlUsers}}/update/2
 Content-Type: application/json
 
@@ -47,8 +49,37 @@ Content-Type: application/json
     "role":"admin"
 }
 
-###delete/api/user/:userId
-DELETE {{host}}{{urlUsers}}/6
+###delete/api/users/:userId
+DELETE {{host}}{{urlUsers}}/7
+
+####### REGISTER & LOGIN ########
+### Register one user:
+# POST /api/admins/register
+# Body: name, surname, age, dni, email, phone, address, password, role
+POST {{host}}{{urlAdmins}}/register
+Content-Type: application/json
+
+{
+    "name":"Pika", 
+    "surname": "Chu", 
+    "age": 11, 
+    "dni": "1111111X",
+    "email":"pica@gmail.com", 
+    "phone": 1111111, 
+    "address":"11 nw avenue", 
+    "password":"1111", 
+    "role":"user"
+}
+
+### Login 
+# POST /api/admins/login
+POST {{host}}{{urlAdmins}}/login
+Content-Type: application/json
+
+{
+    "email": "pica@gmail.com",
+    "password": "1111"
+}
 
 
 
