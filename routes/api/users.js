@@ -1,4 +1,4 @@
-const { getById, create, update, deleteUserById, } = require('../../models/user.model');
+const { getById, create, update, deleteUserById, getRole, } = require('../../models/user.model');
 
 const router = require('express').Router();
 
@@ -23,6 +23,20 @@ router.get ('/:userID', async (req, res) => {
         res.json({ 'fatal': error.message })
     }
 })
+
+/*router.get('/:role', async (req, res) => {
+    try {
+        let role = allRoles(req.role);
+
+        const allRoles = ['admin', 'user']; 
+        if (!allRoles.includes(role)) { return res.status(400).json({ error: 'Invalid role' }) }
+        const [result] = await getRole(allRoles)
+        res.json(result);
+    } catch (error) {
+        res.json({'fatal':error.message })
+    }
+})*/
+
 
 router.post ('/', async (req, res) => {
     try {
@@ -56,15 +70,15 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-/*router.get('/users/:role', (req, res) => { 
-    cont role = req.params.role; 
+router.get('/users/:role', async (req, res) => { 
+    const role = req.params.role; 
     try {
-        const [result] = await getByRole(req.params.userID)
+        const [result] = await getRole(req.params.userID)
         res.json(result)
     } catch (error) {
         res.json({ 'fatal': error.message })
     }
-})*/
+})
 
 
 module.exports = router;

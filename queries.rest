@@ -15,6 +15,9 @@ GET {{host}}{{urlUsers}}
 ### GET/api/users/1
 GET {{host}}{{urlUsers}}/2
 
+###GET/api/role
+GET {{host}}{{urlUsers}}/admin
+
 ### create/api/users/
 POST {{host}}{{urlUsers}}
 Content-Type: application/json

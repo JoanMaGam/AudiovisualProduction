@@ -8,9 +8,9 @@ const getById = (userID) => {
     return db.query(`SELECT * FROM ${usersDb} WHERE id=?`, [userID])
 }; 
 
-/*const getRole = (userRole) => {
+const getRole = (userRole) => {
     return db.query(`SELECT * FROM ${usersDb} WHERE role=?`, [userRole])
-}; */ 
+};
 
 const create = ({name, surname, age, dni, email, phone, address, password, role}) => { return db.query(`INSERT INTO ${usersDb}(name,surname,age,dni,email,phone, address,password,role)VALUES(?,?,?,?,?,?,?,?,?)`, [name, surname, age, dni, email, phone, address, password, role])
 };
@@ -20,7 +20,7 @@ const update = (userID, { name, surname, age, dni, email, phone, address, passwo
 }; 
 
 const deleteUserById = (userID) => {
-    return db.query(`DELETE FROM ${usersDb} WHERE id=?`, [userID]); 
-}
+    return db.query(`DELETE FROM ${usersDb} WHERE id=?`, [userID]);
+};
 
-module.exports = { getAll, getById, create, update, deleteUserById}
+module.exports = { getAll, getById, getRole, create, update, deleteUserById}
