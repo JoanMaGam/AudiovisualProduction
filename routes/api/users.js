@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 const { getAll, getById, create, deleteUserById, insert } = require('../../models/user.model');
 
@@ -48,12 +48,16 @@ router.delete('/:id', async (req, res) => {
 
 router.post('/register', async (req, res) => {
     try {
-        // req.body.password = bcrypt.hashSync(req.body.password, 9);
+        // Encrypt the password:
+        req.body.password = bcrypt.hashSync(req.body.password, 9);
+
         const [result] = await insert(req.body);
         res.json(result);
     } catch (error) {
         res.json({ fatal: error.message })
     }
 });
+
+
 
 module.exports = router;
