@@ -8,7 +8,7 @@ const getById = (userID) => {
     return db.query(`SELECT * FROM ${usersDb} WHERE id=?`, [userID])
 }; 
 
-const getRole = (userRole) => {
+const getByRole = (userRole) => {
     return db.query(`SELECT * FROM ${usersDb} WHERE role=?`, [userRole])
 };
 
@@ -23,4 +23,4 @@ const deleteUserById = (userID) => {
     return db.query(`DELETE FROM ${usersDb} WHERE id=?`, [userID]);
 };
 
-module.exports = { getAll, getById, getRole, create, update, deleteUserById}
+module.exports = { getAll, getById, getByRole, create, update, deleteUserById, getUserAudios}
