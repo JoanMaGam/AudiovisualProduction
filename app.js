@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const apiRouter = require('./routes/api');
+const { serverlogs } = require('./helpers/middlewares');
 
 
 
@@ -18,6 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', apiRouter);
+// Middlewares 
+
+
+app.use('/api', serverlogs, apiRouter);
 
 module.exports = app;

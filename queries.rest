@@ -2,12 +2,176 @@
 @host = http://localhost:3000
 @urlUsers = /api/users
 @urlAdmins = /api/admins
+@urlShows = /api/shows
+@urlAudios = /api/audios
+@urlCharacters = /api/characters
+@urlStore = /api/store
 
 ##### USERS API #####
+# Get all users:
 # GET http://localhost:3000/api/users
 GET {{host}}{{urlUsers}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
 
-##### ADMINS API #####
-# GET http://localhost:3000/api/admins
-GET {{host}}{{urlAdmins}}
+### Get one user by id:
+# GET/api/users/1
+GET {{host}}{{urlUsers}}/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAyODY5MTgsImlhdCI6MTY4OTg1NDkxOH0.-FNYUkJP9ilvE3t47T4ZhKVblqpwhYbR1MIzFIaQ07I
+
+### Create one user:
+# POST /api/users/
+POST {{host}}{{urlUsers}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+Content-Type: application/json
+
+{ 
+    "name": "John", 
+    "surname": "Wick", 
+    "age": "44", 
+    "dni": "33222221W", 
+    "email":"jw@gmail.com", 
+    "phone": "90090990",
+    "address":"900 nw avenue",
+    "password":"wick",
+    "role":"user"
+}
+
+### Update one user by id:
+# PUT /api/users/:userId
+PUT {{host}}{{urlUsers}}/update/1
+Content-Type: application/json
+
+{ 
+    "name":"Joan", 
+    "surname": "Paez", 
+    "age": 24, 
+    "dni": "000008",
+    "email":"sofy@gmail.com", 
+    "phone": 9543007056, 
+    "address":"12777 nw avenue", 
+    "password":"pass1256", 
+    "role":"admin"
+}
+
+### Delete one user by id:
+# DELETE /api/users/:userId
+DELETE {{host}}{{urlUsers}}/7
+
+
+
+####### REGISTER & LOGIN ########
+### Register one user:
+# POST /api/admins/register
+# Body: name, surname, age, dni, email, phone, address, password, role
+POST {{host}}{{urlUsers}}/register
+Content-Type: application/json
+
+{
+    "name":"Dani", 
+    "surname": "Melow", 
+    "age": 33, 
+    "dni": "1121111X",
+    "email":"melow@gmail.com", 
+    "phone": 999999, 
+    "address":"133 nw avenue", 
+    "password":"1212", 
+    "role":"user"
+}
+
+### Login:
+# POST /api/admins/login
+# Body: email, password
+POST {{host}}{{urlUsers}}/login
+Content-Type: application/json
+
+{
+    "email": "melow@gmail.com",
+    "password": "1212"
+}
+
+
+### Get the audios from user id.
+# GET /api/users/audios/:userID
+GET {{host}}{{urlUsers}}/audios/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+
+### Get the shows from user id.
+# GET/api/users/shows/:userID
+GET {{host}}{{urlUsers}}/shows/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+
+### Get the products from user id.
+# GET /api/users/products/:userID
+GET {{host}}{{urlUsers}}/products/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+
+
+
+##### SHOWS API #####
+### Return all shows:
+# GET /api/shows/
+GET {{host}}{{urlShows}}
+
+### Return shows by name:
+# GET /api/shows/:title
+{{host}}{{urlShows}}/program3
+
+
+
+#### AUDIOS API #####
+### Return all audios: 
+# GET /api/audios/
+GET {{host}}{{urlAudios}}
+
+### Return audio by title:
+# GET /api/audios/:title
+GET {{host}}{{urlAudios}}/The Regents- End Credit Theme
+
+### Return audio by showId:
+# GET /api/audios/shows/:showId
+GET {{host}}{{urlAudios}}/shows/1
+
+
+
+#### CHARACTERS API #####
+### Return all characters:
+# GET /api/characters/
+GET {{host}}{{urlCharacters}}
+
+### Return character by name:
+# GET /api/characters/:characterName
+GET {{host}}{{urlCharacters}}/Samaya
+
+### Return character by showId:
+# GET /api/characters/shows/:showId
+GET {{host}}{{urlCharacters}}/shows/2
+
+
+
+#### STORE API #####
+### Return all products:
+# GET /api/store/
+GET {{host}}{{urlStore}}
+
+### Return product by name:
+# GET /api/store/:name
+GET {{host}}{{urlStore}}/Sun Logo
+
+### Return product ordered from min to max price:
+# GET /api/store/order/desc
+GET {{host}}{{urlStore}}/order/desc
+
+### Return product ordered from max to min price:
+# GEE /api/store/order/ASC
+GET {{host}}{{urlStore}}/order/asc
+
+### Return product by status:
+# GET /api/store/status/:productStatus
+GET {{host}}{{urlStore}}/status/pending
+
+
+
+
+
+
 
