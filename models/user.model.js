@@ -35,8 +35,8 @@ const getUserProducts = (userID) => {
 
 // ############# Register & Login ##################
 
-const insert = ({ name, surname, age, dni, email, phone, address, password, role }) => {
-    return db.query(`INSERT INTO ${usersDb}(name, surname, age, dni, email, phone, address, password, role) VALUES(?,?,?,?,?,?,?,?,?)`, [name, surname, age, dni, email, phone, address, password, role]);
+const insert = ({ name, surname, age, dni, email, phone, address, password }) => {
+    return db.query(`INSERT INTO ${usersDb}(name, surname, age, dni, email, phone, address, password) VALUES(?,?,?,?,?,?,?,?)`, [name, surname, age, dni, email, phone, address, password]);
 };
 
 const getByEmail = (email) => {

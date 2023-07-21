@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 
-const { checkToken } = require('../../helpers/middlewares');
+const { /* checkToken  */ } = require('../../helpers/middlewares');
 const { createToken } = require('../../helpers/utils');
 const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update, getUserShows, getUserProducts } = require('../../models/user.model');
 
 
-router.get('/', checkToken, async (req, res) => {
+router.get('/', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await getAll();
         res.json(result);
@@ -15,7 +15,7 @@ router.get('/', checkToken, async (req, res) => {
     };
 });
 
-router.get('/audios/:userID', checkToken, async (req, res) => {
+router.get('/audios/:userID', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await getUserAudios(req.params.userID);
         res.json(result);
@@ -24,7 +24,7 @@ router.get('/audios/:userID', checkToken, async (req, res) => {
     };
 });
 
-router.get('/shows/:userID', checkToken, async (req, res) => {
+router.get('/shows/:userID', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await getUserShows(req.params.userID);
         res.json(result);
@@ -33,7 +33,7 @@ router.get('/shows/:userID', checkToken, async (req, res) => {
     };
 });
 
-router.get('/products/:userID', checkToken, async (req, res) => {
+router.get('/products/:userID', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await getUserProducts(req.params.userID);
         res.json(result);
@@ -42,7 +42,7 @@ router.get('/products/:userID', checkToken, async (req, res) => {
     };
 });
 
-router.get('/:userID', checkToken, async (req, res) => {
+router.get('/:userID', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await getById(req.params.userID);
         res.json(result);
@@ -51,7 +51,7 @@ router.get('/:userID', checkToken, async (req, res) => {
     };
 });
 
-router.post('/', checkToken, async (req, res) => {
+router.post('/', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await create(req.body);
         res.json(result);
@@ -72,7 +72,7 @@ router.put('/update/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', checkToken, async (req, res) => {
+router.delete('/:id', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await deleteUserById(Number(req.params.id));
         res.json(result);
@@ -122,7 +122,7 @@ router.post('/login', async (req, res) => {
     };
 });
 
-router.get('/profile', checkToken, (req, res) => {
+router.get('/profile', /* checkToken, */(req, res) => {
     // delete req.user.password; //This deletes the password before showing it
     console.log(req.user);
     return res.json(req.user);
