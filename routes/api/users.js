@@ -122,9 +122,10 @@ router.post('/login', async (req, res) => {
     };
 });
 
-router.get('/perfil', checkToken, (req, res) => {
+router.get('/profile', checkToken, (req, res) => {
     // delete req.user.password; //This deletes the password before showing it
-    res.json(req.user);
+    console.log(req.user);
+    return res.json(req.user);
 });
 
 
