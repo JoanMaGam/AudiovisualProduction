@@ -91,7 +91,7 @@ router.post('/register', async (req, res) => {
         const [result] = await insert(req.body);
         res.json(result);
     } catch (error) {
-        res.json({ fatal: error.message })
+        res.json({ fatal: error.message });
     };
 });
 
@@ -122,10 +122,18 @@ router.post('/login', async (req, res) => {
     };
 });
 
-router.get('/profile', /* checkToken, */(req, res) => {
+router.get('/profile', /* checkToken, */ async (req, res) => {
     // delete req.user.password; //This deletes the password before showing it
-    console.log(req.user);
-    return res.json(req.user);
+    console.log('hello');
+    // console.log(req.user);
+    // return res.json(req.user);
+    try {
+        const [result] = await getById(2);
+        console.log(result);
+        res.json(result);
+    } catch (error) {
+        res.json({ 'fatal': error.message });
+    };
 });
 
 

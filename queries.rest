@@ -92,7 +92,7 @@ Content-Type: application/json
 ### Get the user profile:
 # GET /api/users/profile/
 GET {{host}}{{urlUsers}}/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzODUzNDMsImlhdCI6MTY4OTk1MzM0M30.UgCYgVmpXMNlTuW9s3v5MYWhy13agNl-VKG6Z5IZcKk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTA0NDgwNTcsImlhdCI6MTY5MDAxNjA1N30.m-KAKNGE4iKCMZWZgPwJVoJonu-IiZqetk2JpTVZDbE
 
 ### Get the audios from user id.
 # GET /api/users/audios/:userID
