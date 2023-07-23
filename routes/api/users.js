@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 
-const { /* checkToken  */ } = require('../../helpers/middlewares');
+const { checkToken } = require('../../helpers/middlewares');
 const { createToken } = require('../../helpers/utils');
 const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update, getUserShows, getUserProducts } = require('../../models/user.model');
 
 
-router.get('/', /* checkToken, */ async (req, res) => {
+router.get('/', checkToken, async (req, res) => {
     try {
         const [result] = await getAll();
         res.json(result);
