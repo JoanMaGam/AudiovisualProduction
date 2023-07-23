@@ -113,7 +113,7 @@ router.post('/login', async (req, res) => {
         };
 
         res.json({
-            succes: 'Login success',
+            success: 'Login success',
             token: createToken(user)
         });
 
