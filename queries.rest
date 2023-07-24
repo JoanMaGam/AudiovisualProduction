@@ -38,7 +38,7 @@ Content-Type: application/json
 
 ### Update one user by id:
 # PUT /api/users/:userId
-PUT {{host}}{{urlUsers}}/update/1
+PUT {{host}}{{urlUsers}}/1
 Content-Type: application/json
 
 { 
@@ -61,7 +61,7 @@ DELETE {{host}}{{urlUsers}}/7
 
 ####### REGISTER & LOGIN ########
 ### Register one user:
-# POST /api/admins/register
+# POST /api/users/register
 # Body: name, surname, age, dni, email, phone, address, password, role
 POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
@@ -79,20 +79,20 @@ Content-Type: application/json
 }
 
 ### Login:
-# POST /api/admins/login
+# POST /api/users/login
 # Body: email, password
 POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "melow@gmail.com",
-    "password": "1212"
+    "email": "hasbu@gmail.com",
+    "password": "111"
 }
 
 ### Get the user profile:
 # GET /api/users/profile/
 GET {{host}}{{urlUsers}}/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTA0NDgwNTcsImlhdCI6MTY5MDAxNjA1N30.m-KAKNGE4iKCMZWZgPwJVoJonu-IiZqetk2JpTVZDbE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
 
 ### Get the audios from user id.
 # GET /api/users/audios/:userID

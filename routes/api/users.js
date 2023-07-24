@@ -42,6 +42,13 @@ router.get('/products/:userID', /* checkToken, */ async (req, res) => {
     };
 });
 
+router.get('/profile', checkToken, async (req, res) => {
+    // delete req.user.password; //This deletes the password before showing it
+    console.log('hello');
+    console.log(req.user);
+    return res.json(req.user);
+});
+
 router.get('/:userID', /* checkToken, */ async (req, res) => {
     try {
         const [result] = await getById(req.params.userID);
@@ -59,7 +66,6 @@ router.post('/', /* checkToken, */ async (req, res) => {
         res.json({ 'fatal': error.message });
     };
 });
-
 router.put('/update/:id', async (req, res) => {
     try {
         const [result] = await update(Number(req.params.id), req.body)
@@ -122,19 +128,7 @@ router.post('/login', async (req, res) => {
     };
 });
 
-router.get('/profile', /* checkToken, */ async (req, res) => {
-    // delete req.user.password; //This deletes the password before showing it
-    console.log('hello');
-    // console.log(req.user);
-    // return res.json(req.user);
-    try {
-        const [result] = await getById(2);
-        console.log(result);
-        res.json(result);
-    } catch (error) {
-        res.json({ 'fatal': error.message });
-    };
-});
+
 
 
 module.exports = router;
