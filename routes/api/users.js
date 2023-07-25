@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const { checkToken } = require('../../helpers/middlewares');
 const { createToken } = require('../../helpers/utils');
-const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update, getUserShows, getUserProducts } = require('../../models/user.model');
+const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update, getUserShows, getUserProducts, createMusicFavs, createShowFavs, createCharacterFavs, getUserCharacters } = require('../../models/user.model');
 
 
 router.get('/', checkToken, async (req, res) => {
@@ -42,12 +42,49 @@ router.get('/products/:userID', /* checkToken, */ async (req, res) => {
     };
 });
 
+router.get('/characters/:userID', /* checkToken, */ async (req, res) => {
+    try {
+        const [result] = await getUserCharacters(req.params.userID);
+        res.json(result);
+    } catch (error) {
+        res.json({ 'fatal': error.message });
+    };
+});
+
 router.get('/profile', checkToken, async (req, res) => {
     // delete req.user.password; //This deletes the password before showing it
     console.log('hello');
     console.log(req.user);
     return res.json(req.user);
 });
+
+router.post('/profile/favs/audios', checkToken, async (req, res) => {
+    try {
+        const [result] = await createMusicFavs(req.user.id, req.body.musicID);
+        res.json(result);
+    } catch (error) {
+        res.json({ 'fatal': error.message });
+    };
+});
+
+router.post('/profile/favs/shows', checkToken, async (req, res) => {
+    try {
+        const [result] = await createShowFavs(req.user.id, req.body.showID);
+        res.json(result);
+    } catch (error) {
+        res.json({ 'fatal': error.message });
+    };
+});
+
+router.post('/profile/favs/characters', checkToken, async (req, res) => {
+    try {
+        const [result] = await createCharacterFavs(req.user.id, req.body.characterID);
+        res.json(result);
+    } catch (error) {
+        res.json({ 'fatal': error.message });
+    };
+});
+
 
 router.get('/:userID', /* checkToken, */ async (req, res) => {
     try {
