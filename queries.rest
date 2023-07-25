@@ -38,12 +38,13 @@ Content-Type: application/json
 
 ### Update one user by id:
 # PUT /api/users/:userId
-PUT {{host}}{{urlUsers}}/1
+PUT {{host}}{{urlUsers}}/update/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjcxNzA1LCJpYXQiOjE2OTAyMzk3MDV9.yAAFuoSxkr7fFOY07YQiR6YCAaFwOhoTayaPDosz4Fw
 Content-Type: application/json
 
 { 
     "name":"Joan", 
-    "surname": "Paez", 
+    "surname": "Martí", 
     "age": 24, 
     "dni": "000008",
     "email":"sofy@gmail.com", 
