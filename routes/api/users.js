@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const { checkToken } = require('../../helpers/middlewares');
 const { createToken } = require('../../helpers/utils');
-const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update, getUserShows, getUserProducts, createMusicFavs, createShowFavs, createCharacterFavs, getUserCharacters } = require('../../models/user.model');
+const { getAll, getById, create, deleteUserById, getUserAudios, getByEmail, insert, update, getUserShows, getUserProducts, createMusicFavs, createShowFavs, createCharacterFavs, getUserCharacters, createProductFavs } = require('../../models/user.model');
 
 
 router.get('/', checkToken, async (req, res) => {
@@ -15,36 +15,36 @@ router.get('/', checkToken, async (req, res) => {
     };
 });
 
-router.get('/audios/:userID', /* checkToken, */ async (req, res) => {
+router.get('/audios', checkToken, async (req, res) => {
     try {
-        const [result] = await getUserAudios(req.params.userID);
+        const [result] = await getUserAudios(req.user.id);
         res.json(result);
     } catch (error) {
         res.json({ 'fatal': error.message });
     };
 });
 
-router.get('/shows/:userID', /* checkToken, */ async (req, res) => {
+router.get('/shows', checkToken, async (req, res) => {
     try {
-        const [result] = await getUserShows(req.params.userID);
+        const [result] = await getUserShows(req.user.id);
         res.json(result);
     } catch (error) {
         res.json({ 'fatal': error.message });
     };
 });
 
-router.get('/products/:userID', /* checkToken, */ async (req, res) => {
+router.get('/products', checkToken, async (req, res) => {
     try {
-        const [result] = await getUserProducts(req.params.userID);
+        const [result] = await getUserProducts(req.user.id);
         res.json(result);
     } catch (error) {
         res.json({ 'fatal': error.message });
     };
 });
 
-router.get('/characters/:userID', /* checkToken, */ async (req, res) => {
+router.get('/characters', checkToken, async (req, res) => {
     try {
-        const [result] = await getUserCharacters(req.params.userID);
+        const [result] = await getUserCharacters(req.user.id);
         res.json(result);
     } catch (error) {
         res.json({ 'fatal': error.message });
@@ -53,8 +53,6 @@ router.get('/characters/:userID', /* checkToken, */ async (req, res) => {
 
 router.get('/profile', checkToken, async (req, res) => {
     // delete req.user.password; //This deletes the password before showing it
-    console.log('hello');
-    console.log(req.user);
     return res.json(req.user);
 });
 
@@ -85,6 +83,15 @@ router.post('/profile/favs/characters', checkToken, async (req, res) => {
     };
 });
 
+router.post('/profile/favs/products', checkToken, async (req, res) => {
+    try {
+        const [result] = await createProductFavs(req.user.id, req.body.productID);
+        res.json(result);
+    } catch (error) {
+        res.json({ 'fatal': error.message });
+    };
+});
+
 
 router.get('/:userID', /* checkToken, */ async (req, res) => {
     try {
@@ -107,7 +114,6 @@ router.put('/update/:id', async (req, res) => {
     try {
         const [result] = await update(Number(req.params.id), req.body)
         const [result_final] = await getById(Number(req.params.id));
-        console.log(result);
         res.json(result);
 
     } catch (error) {

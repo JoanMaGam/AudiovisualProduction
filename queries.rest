@@ -95,25 +95,25 @@ Content-Type: application/json
 GET {{host}}{{urlUsers}}/profile
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
 
-### Get the audios from user id.
-# GET /api/users/audios/:userID
-GET {{host}}{{urlUsers}}/audios/14
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNzMzOTIyLCJpYXQiOjE2OTAzMDE5MjJ9.mXAIJhnHDP7sypryqau1CzFeoO88ixOdTIvq2A8qXYM
+### Get the audios from user logged.
+# GET /api/users/audios
+GET {{host}}{{urlUsers}}/audios
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
 
-### Get the shows from user id.
-# GET/api/users/shows/:userID
-GET {{host}}{{urlUsers}}/shows/8
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+### Get the shows from user logged.
+# GET/api/users/shows
+GET {{host}}{{urlUsers}}/shows
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
 
-### Get the products from user id.
-# GET /api/users/products/:userID
-GET {{host}}{{urlUsers}}/products/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+### Get the products from user logged.
+# GET /api/users/products
+GET {{host}}{{urlUsers}}/products
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
 
-### Get the characters from user id.
-# GET /api/users/character/:userID
-GET {{host}}{{urlUsers}}/characters/14
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VyX3JvbCI6InVzZXIiLCJleHAiOjE2OTAzMDI2NzUsImlhdCI6MTY4OTg3MDY3NX0.GEjOy5vgu6IGNPrQyym1YEJC-TzIEFTAbxFiPJiB82k
+### Get the characters from user logged.
+# GET /api/users/characters
+GET {{host}}{{urlUsers}}/characters
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNzk4NjAxLCJpYXQiOjE2OTAzNjY2MDF9.lTYto4hLf9nCviV1gLCsdBHH2_GTqSOvDi0ewpbK11o
 
 ### 
 POST {{host}}{{urlUsers}}/profile/favs/audios
@@ -140,6 +140,15 @@ Content-Type: application/json
 
 {
 "characterID": 7
+}
+
+###
+POST {{host}}{{urlUsers}}/profile/favs/products
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNzMzOTIyLCJpYXQiOjE2OTAzMDE5MjJ9.mXAIJhnHDP7sypryqau1CzFeoO88ixOdTIvq2A8qXYM
+Content-Type: application/json
+
+{
+"productID": 7
 }
 
 

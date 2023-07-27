@@ -52,6 +52,11 @@ const createCharacterFavs = (userID, itemID) => {
     VALUES (?,?);`, [userID, itemID]);
 };
 
+const createProductFavs = (userID, itemID) => {
+    return db.query(`INSERT INTO users_has_products (users_id, products_id)
+    VALUES (?,?);`, [userID, itemID]);
+};
+
 
 
 // ############# Register & Login ##################
@@ -64,4 +69,4 @@ const getByEmail = (email) => {
     return db.query(`SELECT * FROM ${usersDb} WHERE email=?`, [email]);
 };
 
-module.exports = { getAll, getById, create, update, deleteUserById, getUserAudios, getUserShows, getUserProducts, insert, getByEmail, createMusicFavs, createShowFavs, createCharacterFavs, getUserCharacters } 
+module.exports = { getAll, getById, create, update, deleteUserById, getUserAudios, getUserShows, getUserProducts, insert, getByEmail, createMusicFavs, createShowFavs, createCharacterFavs, getUserCharacters, createProductFavs } 
