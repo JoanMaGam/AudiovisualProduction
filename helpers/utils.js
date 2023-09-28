@@ -7,7 +7,7 @@ const createToken = (user) => {
         user_rol: user.role,
 
         // Token expires in 10 days
-        exp: dayjs().add(5, 'days').unix()
+        exp: dayjs().add(200, 'days').unix()
     };
     return jwt.sign(obj, 'secretPhrase');
 };

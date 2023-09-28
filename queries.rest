@@ -1,5 +1,6 @@
 
-@host = http://localhost:3000
+# @host = http://localhost:3000
+@host = https://audio-visual-production-backend.onrender.com
 @urlUsers = /api/users
 @urlAdmins = /api/admins
 @urlShows = /api/shows
@@ -86,29 +87,29 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "hasbu@gmail.com",
-    "password": "111"
+    "email": "melow@gmail.com",
+    "password": "1212"
 }
 
 ### Get the user profile:
 # GET /api/users/profile/
 GET {{host}}{{urlUsers}}/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNzEyMzI5MzEyLCJpYXQiOjE2OTUwNDkzMTJ9.bD56sjgcQdDKn6XCBlt9pOqTXjNTB9Zlu1EhH9fdMQY
 
 ### Get the audios from user logged.
 # GET /api/users/audios
 GET {{host}}{{urlUsers}}/audios
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNzEyMzI5MzEyLCJpYXQiOjE2OTUwNDkzMTJ9.bD56sjgcQdDKn6XCBlt9pOqTXjNTB9Zlu1EhH9fdMQY
 
 ### Get the shows from user logged.
 # GET/api/users/shows
 GET {{host}}{{urlUsers}}/shows
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNzEyMzI5MzEyLCJpYXQiOjE2OTUwNDkzMTJ9.bD56sjgcQdDKn6XCBlt9pOqTXjNTB9Zlu1EhH9fdMQY
 
 ### Get the products from user logged.
 # GET /api/users/products
 GET {{host}}{{urlUsers}}/products
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNjkwNjU0NjYyLCJpYXQiOjE2OTAyMjI2NjJ9.XJBtOToZ7YTQeQmvxEqsYljaErAGIjhwujHBWpdpp9Y
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwidXNlcl9yb2wiOiJ1c2VyIiwiZXhwIjoxNzEyMzI5MzEyLCJpYXQiOjE2OTUwNDkzMTJ9.bD56sjgcQdDKn6XCBlt9pOqTXjNTB9Zlu1EhH9fdMQY
 
 ### Get the characters from user logged.
 # GET /api/users/characters
